@@ -1,0 +1,124 @@
+const express = require('express');
+const app = express();
+app.get('/', (req, res) => {
+	res.send(`
+   <!DOCTYPE html>
+   <html lang="en">
+   <meta charset="UTF-8">
+   
+   <head>
+           <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+           <link rel="stylesheet" href="styles.css">
+           <script> 
+           let bool = false
+                   function turnOn(){
+                           if (bool == true){
+                                   document.getElementById('button3').innerHTML = "Turn On ";
+                                   document.getElementById('myImage').src='https://www.w3schools.com/js/pic_bulboff.gif';
+                                   document.getElementById('demo').innerHTML = " Off";
+                                   
+                                   bool = false;
+                           }
+                           else {
+                                   document.getElementById('button3').innerHTML = "Turn Off";
+                                   document.getElementById('myImage').src='https://www.w3schools.com/js/pic_bulbon.gif';
+                                   document.getElementById('demo').innerHTML = " On 🔥";
+                                   bool = true;
+                           }
+                   }
+           
+           </script>
+           <style>
+               
+           div{
+                   
+                   color: rgb(0, 0, 0);
+                   text-align: center;
+                   display: inline-block;
+                   font-size: 30px;
+                   font-family: 'Share Tech Mono', monospace;
+                   display: block;
+                   margin-left: auto;
+                   margin-right: auto;
+           }
+         pre {
+            display: inline-block;
+         }
+         p{
+            display: inline-block;
+         }
+         .p1{
+            display: inline-block;
+            color: #FFFF00;
+            font-weight: bold;
+   
+   
+         }
+           body{
+                   background-image: url('https://www.teahub.io/photos/full/288-2886271_hd-anime-gif.gif');
+                   background-repeat: no-repeat;
+                   background-attachment: fixed;
+                   background-size: cover
+   
+           }
+           button{
+   
+                   color: rgb(255, 255, 255);
+                   padding: 16px 32px;
+                   border-radius: 10px;
+                   text-align: center;
+                   text-decoration: none;
+                   display: inline-block;
+                   font-size: 16px;
+                   transition-duration: 0.5s;
+                   cursor: pointer;
+                   font-family: 'Share Tech Mono', monospace;
+                   display: block;
+                   margin-left: auto;
+                   margin-right: auto;   
+           
+           }
+           .button1{
+                   background-color: rgb(255, 255, 255);
+                   color: rgb(0, 0, 0);
+                   border: 2px solid #06ffd5;
+   
+           }
+           .button1:hover {
+               background-color: #06ffd5;
+   
+           }
+           .button2{
+                   background-color: rgb(255, 255, 255);
+                   color: rgb(0, 0, 0);
+                   border: 2px solid #06c5ff;
+           }
+           .button2:hover {
+               background-color: #06c5ff;
+           }
+   
+           img{
+                   display: block;
+                   margin-left: auto;
+                   margin-right: auto;
+                   padding-top: 20px;
+                   padding-bottom: 20px;
+                   padding-right: 15px;
+           }
+   
+   
+           </style>
+   </head>
+   <title>Light Bulb</title>
+   <body>
+   <img id="myImage" src="https://www.w3schools.com/js/pic_bulboff.gif" style="width: 100px;">
+   <div><p>The state of the Bulb is <pre> </pre><p class="p1" id="demo">Off</p></p></div>
+   <button id="button3" class="button button1" type="button" onclick="turnOn()" >Turn On</button>
+   
+   </body>
+   </html>
+   `);
+
+});
+
+app.listen(7080, () => console.log('http://localhost:7080/'));
